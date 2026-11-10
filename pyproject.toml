@@ -19,6 +19,7 @@ Homepage = "https://github.com/WayScience/pairwise_compare"
 # installed by `uv sync`
 dev = [
     "pytest>=8.3.3",
+    "pytest-cov>=5.0.0",
     "pyarrow>=18.0.0",  # the tests read a parquet file
 ]
 docs = [
@@ -39,3 +40,9 @@ packages = ["src/pairwise_compare"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["pairwise_compare"]
+
+[tool.coverage.report]
+show_missing = true

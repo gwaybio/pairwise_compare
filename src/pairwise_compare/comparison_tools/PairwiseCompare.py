@@ -55,6 +55,12 @@ def _group_rows(
     return groups
 
 
+def _describe(key: tuple) -> str:
+    """The values of a group, for the warnings."""
+
+    return ", ".join(str(value) for value in key)
+
+
 def _differ_everywhere(key0: tuple, key1: tuple) -> bool:
     """Whether two groups have a different value in every column."""
 
@@ -188,7 +194,7 @@ class PairwiseCompare:
 
             if len(inner_groups) < 2:
                 warnings.warn(
-                    f"The outer group {outer_key} has fewer than two inner groups, so nothing is compared in it.",
+                    f"The outer group ({_describe(outer_key)}) has fewer than two inner groups, so nothing is compared in it.",
                     UserWarning,
                 )
                 continue
@@ -218,7 +224,7 @@ class PairwiseCompare:
 
             if not inner_pairs:
                 warnings.warn(
-                    f"The outer groups {outer0} and {outer1} have no inner groups to compare.", UserWarning
+                    f"The outer groups ({_describe(outer0)}) and ({_describe(outer1)}) have no inner groups to compare.", UserWarning
                 )
                 continue
 
