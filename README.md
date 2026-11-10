@@ -7,7 +7,7 @@ The [example notebook](docs/example_pairwise_comparisons.ipynb) uses a dataset f
 Most of the development is in the `src` folder.
 
 ## Installation
-For Python 3.10 or newer, install the package with either of the following commands:<br>
+You can install the package with either of the following commands:<br>
 `pip install pairwise-compare`<br>
 `uv add pairwise-compare`
 
@@ -49,10 +49,4 @@ The result has one row per pair of rows, with their Pearson correlation across t
 A comparator keeps the results of every comparison it has made, so use a new one for each call to `compare_pairs`.
 
 ## Development
-Install the package with its test dependencies and run the tests with [uv](https://docs.astral.sh/uv/):<br>
-`uv sync`<br>
-`uv run pytest --cov`
-
-The version comes from the git tag of the release.
-Release Drafter keeps a draft release with the notes of the merged pull requests (give a pull request the label `release-minor` or `release-major` to raise the version more than a patch).
-To make a release, publish the draft on GitHub, which creates the tag and publishes the package to PyPI (see `.github/workflows/publish.yml`).
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to run the tests and make a release.
